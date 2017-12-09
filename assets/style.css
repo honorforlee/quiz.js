@@ -18,6 +18,12 @@ a:hover {
   margin: 30px auto;
   padding: 20px;
 }
+.green {
+  color: #27ae60;
+}
+.red {
+  color: #e74c3c;
+}
 .question {
   font-size: 20px;
 }

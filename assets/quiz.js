@@ -8,6 +8,7 @@ const answer4 = quiz.querySelector("#answer_4");
 const nextQuestion = quiz.querySelector("#next");
 const pointsCorrect = quiz.querySelector("#points_correct");
 const pointsGeneral = quiz.querySelector("#points_general");
+const result = quiz.querySelector(".result");
 
 const questions = [];
 // questions[index] = ["question", "number of correct answer", "answer 1", "answer 2", "answer 3", "answer 4"];
@@ -40,16 +41,22 @@ function newQuestion(number) {
   answers.onclick = function(event) {
 	const target = getEventTarget(event);
 	
-	if(parseInt(target.value) === questions[number][1]) {
-	  pcorrect++;
-	  pointsCorrect.innerHTML = pcorrect;
-	}
+  if(target.value == 1 || target.value == 2 || target.value == 3 || target.value == 4) {
+    if(parseInt(target.value) === questions[number][1]) {
+      pcorrect++;
+      pointsCorrect.innerHTML = pcorrect;
+      result.innerHTML = "<span class='green'>Yeah! <b>"+questions[number][parseInt(target.value)+1]+"</b> is correct answer!</span>";
+    }
+    else {
+      result.innerHTML = "<span class='red'>Oops! <b>"+questions[number][parseInt(target.value)+1]+"</b> isn't a correct answer...</span>";
+    }
 	
-  // add 1 point to general points
-  pgeneral++;
-  pointsGeneral.innerHTML = pgeneral;
+    // add 1 point to general points
+    pgeneral++;
+    pointsGeneral.innerHTML = pgeneral;
 
-  newQuestion(rand(0, questions.length-1));
+    newQuestion(rand(0, questions.length-1));
+  }
 	
   }
 }
