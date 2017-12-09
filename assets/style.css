@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lato', sans-serif;
+}
+a {
+  color: #999;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.quiz {
+  max-width: 600px;
+  text-align: center;
+  margin: 30px auto;
+  padding: 20px;
+}
+.question {
+  font-size: 20px;
+}
+.correct {
+  background-color: #27ae60 !important;
+}
+.incorrect {
+  background-color: #e74c3c !important;
+}
+.answers {
+  margin: 20px auto;
+}
+.answers > button {
+  cursor: pointer;
+  width: 45%;
+  border: 0;
+  border-radius: 0;
+  font-size: 17px;
+  background: #16a085;
+  margin: 3px 1px;
+  padding: 10px;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+}
+.answers > button:hover {
+  background: #138871;
+}
+.points {
+  font-weight: 700;
+  margin-right: 15px;
+}
+@media (max-width: 736px) {
+  .answers > button {
+    width: 100%;
+  }
+}
