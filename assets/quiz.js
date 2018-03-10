@@ -1,10 +1,7 @@
 const quiz = document.querySelector(".quiz");
 const question = quiz.querySelector(".question");
 const answers = quiz.querySelector(".answers");
-const answer1 = quiz.querySelector("#answer_1");
-const answer2 = quiz.querySelector("#answer_2");
-const answer3 = quiz.querySelector("#answer_3");
-const answer4 = quiz.querySelector("#answer_4");
+const answer = quiz.querySelectorAll('.answer');
 const nextQuestion = quiz.querySelector("#next");
 const pointsCorrect = quiz.querySelector("#points_correct");
 const pointsGeneral = quiz.querySelector("#points_general");
@@ -26,15 +23,17 @@ questions[9] = ["Which property is used to change the background color?", 3, "bg
 let pcorrect = 0;
 let pgeneral = 0; 
 
-function newQuestion(number) {
+function newQuestion() {
+  let number = rand(0, questions.length-1);
+
   // insert question
   question.innerHTML = questions[number][0];
   
   // insert answers
-  answer1.innerHTML = questions[number][2];
-  answer2.innerHTML = questions[number][3];
-  answer3.innerHTML = questions[number][4];
-  answer4.innerHTML = questions[number][5];
+  answer[0].innerHTML = questions[number][2];
+  answer[1].innerHTML = questions[number][3];
+  answer[2].innerHTML = questions[number][4];
+  answer[3].innerHTML = questions[number][5];
   
   // after clicking one of answers
   answers.onclick = function(event) {
@@ -54,16 +53,16 @@ function newQuestion(number) {
     pgeneral++;
     pointsGeneral.innerHTML = pgeneral;
 
-    newQuestion(rand(0, questions.length-1));
+    newQuestion();
   }
 	
   }
 }
 
-newQuestion(rand(0, questions.length-1));
+newQuestion();
 
 nextQuestion.addEventListener("click", function(){
-  newQuestion(rand(0, questions.length-1));
+  newQuestion();
 });
 
 function getEventTarget(e) {
